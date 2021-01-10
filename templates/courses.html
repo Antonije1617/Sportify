@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/courses.css' %}">
+{% endblock css %}
+{% block content %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center">Sportify</h1>
+            <p class="lead text-center">Socialize & Get Fit</p>
+        </div>
+    </div>
+    <div class="container justify-content-center">
+        <div class="row">
+            {% for course in courses %}
+                <div class="col-md-4">
+                <div class="card" style="background-color: lightblue; height: 100%" >
+                    <img class="rounded-circle" style="height: 100px; width:100px; margin-left: 20px"  src="{{ course.author.profile.image.url }}">
+                    <div class="card-body">
+                        {% if course.author != user %}
+                        <h4><a href="{% url 'sportifyDetail' course.id %}">{{ course.sport }} - Apply Now</a> </h4>
+                        {% endif %}
+                        <h5 class="card-title">posted by {{ course.author }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Free Places - {{ course.places|add:course.total_bookings }}</h6>
+                        <p class="card-text">{{ course.description }}</p>
+                        <p class="card-text">Reserved Places {{ course.total_bookings }}</p>
+                        <p class="card-text">Contact - {{ course.author.email }}</p>
+                        <p class="card-text">Posted On - {{ course.date_posted|date:"F d, Y" }}</p>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

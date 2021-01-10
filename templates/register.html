@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+{% endblock css %}
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container text-center">
+        <h1>Registration</h1>
+        <p>register here to join the communtity to socialize & get fit</p>
+            {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" style="margin-top: 200px">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+    </div>
+    </div>
+
+    <div class="container-fluid"> <!--container spanning whole viewpoint-->
+        <div class="row align-items-start">
+            <div class="col-sm-5 pr-lg-0 mb-xs-0">
+                <img src="/static/images/logo2.jpg" alt="Responsive Image" class="img-fluid">
+            </div>
+
+            <div class="col-sm-5 col-lg-7 ml-auto">
+                    <div class="row">
+
+                        <div class="content-section">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Join Today</legend>
+                                    {{ form|crispy }}
+                                </fieldset>
+                                <div class="form-group">
+                                    <!-- Submit Button -->
+                                    <div class="form-group col-lg-12 mx-auto mb-0">
+                                        <button class="btn btn-success btn-block py-2" type="submit">
+                                            <span class="font-weight-bold">Create your account</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="border-top pt-3">
+                                <small class="text-muted">
+                                    Already Have An Account? <a class="ml-2" href="{% url 'sportifyLogin' %}">Sign In</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/courses.css' %}">
+{% endblock css %}
+{% block content %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center">Sportify</h1>
+            <p class="lead text-center">Socialize & Get Fit</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+                <div class="col-md-4">
+                <div class="card" style="background-color: lightblue" >
+                    <img class="rounded-circle" style="height: 100px; width:100px; margin-left: 130px"  src="{{ object.author.profile.image.url }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ object.sport }}  posted by {{ object.author }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Free Places - {{ course.places|add:course.total_bookings }}</h6>
+                        <p class="card-text">{{ object.description }}</p>
+                        <p class="card-text">Contact - {{ object.author.email }}</p>
+                        <p class="card-text">Posted On - {{ object.date_posted|date:"F d, Y" }}</p>
+                        <form action="{% url 'sportifyBooking' course.pk %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit", name="course_id", value="{{ course.id }}", class="btn btn-primary btn-sm">
+                            Book
+                        </button>
+                    </form>
+                    </div>
+                </div>
+                </div>
+
+        </div>
+    </div>
+
+{% endblock %}

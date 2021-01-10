@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+{% endblock css %}
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container text-center">
+        <h1>Post An Offer Here</h1>
+    </div>
+    </div>
+
+    <div class="container-fluid"> <!--container spanning whole viewpoint-->
+                            <form method="POST">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4 text-center">Sportify</legend>
+                                    {{ form|crispy }}
+                                </fieldset>
+                                <div class="form-group">
+                                    <!-- Submit Button -->
+                                    <div class="form-group col-lg-12 mx-auto mb-0">
+                                        <button class="btn btn-success btn-block py-2" type="submit">
+                                            <span class="font-weight-bold">Post</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="border-top pt-3">
+                                <small class="text-muted">
+                                    Check all courses here <a class="ml-2" href="{% url 'sportifyCourses' %}">Courses</a>
+                                </small>
+                            </div>
+                        </div>
+{% endblock content %}

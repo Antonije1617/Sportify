@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+{% endblock css %}
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>You Have Been Logged Out</h1>
+            <small class="text-muted">
+                <a class="ml-2" href="{% url 'sportifyLogin' %}">Log In Again</a>
+            </small>
+        </div>
+    </div>
+
+{% endblock content %}

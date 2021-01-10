@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css'%}">
+{% endblock %}
+{% block content %}
+<section class="py-5">
+    <div class="container">
+
+        <h1 >About Sportify :)</h1>
+        <p class="lead">
+
+		Our goal is to bring together students of FH Campus Wien who are interested in sporting activities. To join the community just register with your @stud.fh-campuswien.ac.at address, afterwards you can book courses or offer some. The registration is free and eventual course costs are just to cover costs. Don´t waste time, register and start socializing and get fit with your new friends :)
+    </div>
+
+</section>
+
+
+
+<section class="page-section quote">
+    <div class="container">
+            <div class="row">
+                <div class="col-xl-9 col-lg-5 mx-auto">
+                    <div class="bg-faded rounded p-5">
+
+                        <blockquote class="blockquote blockquote-custom bg-black p-5 shadow rounded" style="background-color: lightblue">
+                            <div> <i class="fas fa-quote-left text-black"></i></div>
+                            <p class="blockquote-quote"> “Sport gave me the opportunity to make friends, learn real life skills and create everlasting memories.”
+							</p>
+                            <p class="blockquote-footer pt-4 mt-4 border-top ">Darcy Swain, Rugby Player"
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

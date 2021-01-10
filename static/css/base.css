@@ -1,0 +1,15 @@
+.navbar{
+    opacity: 0.7;
+}
+
+.navbar-nav.mr-auto li a{
+    color: black;
+    font-size: large;
+    font-weight: bold;
+}
+
+.navbar-nav li a{
+    color: black;
+    font-size: large;
+    font-weight: bold;
+}
